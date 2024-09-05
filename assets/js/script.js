@@ -25,17 +25,17 @@
  * 留学相談アイコン用
  * =============================== ******/
 
-const counselingImgContainer = document.getElementsByClassName("counseling-img-container")[0];
+// const counselingImgContainer = document.getElementsByClassName("counseling-img-container")[0];
 
-counselingImgContainer.addEventListener("mouseover", function(){
-    counselingImgContainer.querySelector("#counseling-img").style.display = "none";
-    counselingImgContainer.querySelector("#counseling-hover").style.display = "block";
-})
+// counselingImgContainer.addEventListener("mouseover", function(){
+//     counselingImgContainer.querySelector("#counseling-img").style.display = "none";
+//     counselingImgContainer.querySelector("#counseling-hover").style.display = "block";
+// })
 
-counselingImgContainer.addEventListener("mouseout", function(){
-    counselingImgContainer.querySelector("#counseling-hover").style.display = "none";
-    counselingImgContainer.querySelector("#counseling-img").style.display = "block";
-})
+// counselingImgContainer.addEventListener("mouseout", function(){
+//     counselingImgContainer.querySelector("#counseling-hover").style.display = "none";
+//     counselingImgContainer.querySelector("#counseling-img").style.display = "block";
+// })
 
 
 /****** ================================
