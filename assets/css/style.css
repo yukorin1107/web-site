@@ -874,16 +874,18 @@ message section4
 }
 
 #message-tv{
-    width: 79%;
+    width: 95%;
     /* padding-top: 3%; */
     position: absolute;
+    z-index: -3;
     /* margin-top: 80px; */
     /* bottom: 0; */
     /* border: #333 solid 2px; */
 }
 
 #video-msg{
-    width: 50%;
+    width: 60%;
+    height: 70%;
     position: absolute;
     /* border: blue 2px solid; */
     /* bottom: 35px; */
@@ -902,6 +904,13 @@ message section4
         height: 30vh;
         /* margin-top: 10%; */
         /* border: red 3px solid; */
+    }
+
+    #video-msg{
+        width: 60%;
+        height: 60%;
+        position: absolute;
+
     }
     
 }
