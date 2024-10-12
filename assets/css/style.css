@@ -481,8 +481,8 @@ ABOUT section2
 
 /*======モーダルのためのcss========*/
 
-
-.modaal {
+/* 写真→文字にするためコメントアウト */
+/* .modaal {
     display: none;
     position: fixed;
     top: 0;
@@ -493,42 +493,131 @@ ABOUT section2
     z-index: 1000;
     justify-content: center;
     align-items: center;
-}
-
-/* .about-container{
-    position: static;
 } */
 
-.modaal-content {
+/* .modaal-content {
     max-width: 90%;
     max-height: 100%;
     overflow: auto;
     position: relative;
     left: 4%;
+} */
+
+
+.modaal {
+    display: none; /* モーダルが表示されるときにはこれを block にする */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(190, 232, 251, 0.8); /* 背景の半透明なオーバーレイ */
+    z-index: 1000;
+    display: flex; /* フレックスボックスを使って中央揃え */
+    justify-content: center; /* 横方向に中央揃え */
+    align-items: center; 
+    /* padding-top: 10%; */
 }
 
-.modaal-content img {
+.modaal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60%; /* モーダルの幅を80%に制限 */
+    max-height: 80vh; /* モーダルの高さを80%に制限 */
+    overflow: auto; /* コンテンツが溢れるとスクロール可能に */
+    position: relative; 
+    background: lightblue; /* 背景を白に設定 */
+    padding: 5%; /* コンテンツ内の余白を設定 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影を追加して浮き上がった効果 */
+    border-radius: 8px; /* 角を丸くする */
+}
+
+@media (max-width: 768px){
+    .modaal-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 90%; /* モーダルの幅を80%に制限 */
+        max-height: 80vh; /* モーダルの高さを80%に制限 */
+        overflow: auto; /* コンテンツが溢れるとスクロール可能に */
+        position: relative; 
+        background: lightblue; /* 背景を白に設定 */
+        padding: 5%; /* コンテンツ内の余白を設定 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影を追加して浮き上がった効果 */
+        border-radius: 8px; /* 角を丸くする */
+    }
+}
+
+.modaal-content img{
+    padding-bottom: 7%;
+}
+
+
+.modaal-letter h3{
+    text-align: center;
+    font-size: x-large;
+    color: navy;
+    font-family: "鉄瓶ゴシック", sans-serif;
+    padding: 5%;
+
+}
+
+.modaal-letter h4{
+    /* text-url(http://127.0.0.1:5500/assets/img/about/about-wings.png)align: center; */
+    font-size: large;
+    color: black;
+    font-family: "鉄瓶ゴシック", sans-serif;
+    padding-top: 1%;
+    padding-bottom: 1%;
+
+}
+
+.modaal-letter p, .modaal-letter ul{
+    padding-bottom: 5%;
+    padding-left: 2%;
+}
+
+/* .modaal-content img {
     width: 100%;
     height: auto;
-}
+} */
 
 .modaal-close {
     position: absolute;
     top: 10px;
     right: 10px;
-    /* background: #fff; */
-    
     border: none;
     font-size: 20px;
     cursor: pointer;
 }
 
-@media(width < 431px){
+/* .modaal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff; 
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border-radius: 50%; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+} */
+
+
+/* @media(width < 431px){
     .modaal-content {
         top: 30%;
     }    
 
-}
+} */
 
 
 /*==================================================
