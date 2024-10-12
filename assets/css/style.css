@@ -7,6 +7,14 @@
     src: url('https://cdn.leafscape.be/tetsubin/tetsubin_web.woff2') format("woff2");
 }
 
+/* .stick-regular {
+    font-family: "Stick", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}   */
+
+/* font-family: "鉄瓶ゴシック", sans-serif; */
+
 * {
     font-family: gill sans, sans-serif;
 }
@@ -18,6 +26,19 @@
     font-family: "鉄瓶ゴシック", sans-serif; /* フォントファミリーを設定 */
     letter-spacing: 0.12em;
     
+}
+
+@media(max-width: 768px){
+    .my-title{
+        text-align: center;
+        font-size: 7vw;
+        padding: 3% 0;
+        /* font-family: "Stick", sans-serif;  */
+        color: navy;
+        font-weight: 800;
+        font-style: normal;
+        letter-spacing: 0.12em; 
+    }
 }
 
 .mains{
@@ -585,12 +606,12 @@ DATA section3
         color: rgb(114, 160, 221);
         position: relative;
         z-index: 3;
-        font-size: 4vw;
+        font-size: 6vw;
         letter-spacing: 0.2em;
     }
     
     .data-container h3{
-        font-size: 2vw;
+        font-size: 4vw;
         padding-top: 0;
     }
 }
@@ -775,15 +796,16 @@ DATA section3
 
 .red{
     font-family: "鉄瓶ゴシック", sans-serif; 
-    font-size: 2.2vw; 
+    font-size: 3.2vw; 
     color: rgb(243, 96, 96);
 }
 
 
-@media(width < 431px){
+@media (max-width: 768px){
 
     .data-panel-03-content{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 95%;
@@ -812,7 +834,8 @@ DATA section3
     #data3-img-2 ul li{
         list-style: none;
         font-family: "鉄瓶ゴシック", sans-serif; 
-        font-size: 2vw; 
+        font-size: 3vw; 
+        margin-top: 2.5vw;
         margin-bottom: 2.5vw;
         color: rgb(123, 120, 120);
     }
@@ -844,6 +867,48 @@ DATA section3
     }
 } */
 
+
+@media (max-width: 768px) {
+    #data {
+        padding-top: 10%; /* ここで余白を設定 */
+        height: auto; /* データセクション全体の高さを自動調整 */
+    }
+
+    .data-container .data-wrapper {
+        width: 100%; /* 横幅は100% */
+        flex-direction: column; /* パネルを縦に並べる */
+        height: auto; /* 高さは自動で */
+    }
+
+    .data-container .data-panel {
+        width: 100%; /* パネルを横幅100%で縦に並べる */
+        height: auto; /* 高さはコンテンツに合わせる */
+        margin-bottom: 3%; /* パネル同士に余白を追加 */
+        position: relative; /* 各パネルを通常のフローで配置 */
+    }
+
+    .data-panel-01-content,.data-panel-02-content, .data-panel-03-content {
+        position: relative; /* パネル2と3の絶対配置を無効化 */
+    }
+
+    .data-panel-01-content{
+        margin-bottom: 10%;
+    }
+
+    #data2-img, #data2-img-2, #data2-img-3 {
+        position: relative; /* 各要素を相対配置に */
+    }
+
+    #data3-img {
+        margin-left: 0; /* パネル3のマージンをリセット */
+    }
+
+    #data3-img-2 {
+        position: relative; /* 絶対配置を無効化 */
+        right: auto;
+        bottom: auto;
+    }
+}
 
 
 

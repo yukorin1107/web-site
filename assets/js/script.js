@@ -99,31 +99,60 @@ $("#g-navi li a").click(function () {//ナビゲーションのリンクがク�
  * GSAP横スクロール用
  * =============================== ******/
 
+// const data = document.querySelector('#data');
+// if (data) {
+//     // gsap.registerPlugin(ScrollTrigger); // npm/yarnの際に必要
+//     const panels = gsap.utils.toArray('.panel');
+//     const dataWidth = data.offsetWidth;
+
+//     /**
+//     * 横スクロール開始
+//     */
+//     gsap.to(panels, {
+//         xPercent: -100 * (panels.length - 1), // transformX
+//         ease: "none", // easingの設定
+//         scrollTrigger: { // scrollTrigger
+//             trigger: data, // アニメーションの対象となる要素
+//             pin: true, // 要素を固定する
+//             scrub: 0.5, // スクロールとアニメーションを同期させる。数値で秒数の設定に
+//             snap: { // スナップスクロールにする
+//                 snapTo: 1 / (panels.length - 1), // スナップで移動させる位置
+//                 duration: { min: 0.4, max: 0.6 }, // スナップで移動する際の遅延時間
+//                 ease: "none" // easing
+//             },
+//             end: () => "+=" + dataWidth // アニメーションの終了タイミング
+//         }
+//     });
+// }
+
 const data = document.querySelector('#data');
 if (data) {
-    // gsap.registerPlugin(ScrollTrigger); // npm/yarnの際に必要
     const panels = gsap.utils.toArray('.panel');
     const dataWidth = data.offsetWidth;
 
-    /**
-    * 横スクロール開始
-    */
-    gsap.to(panels, {
-        xPercent: -100 * (panels.length - 1), // transformX
-        ease: "none", // easingの設定
-        scrollTrigger: { // scrollTrigger
-            trigger: data, // アニメーションの対象となる要素
-            pin: true, // 要素を固定する
-            scrub: 0.5, // スクロールとアニメーションを同期させる。数値で秒数の設定に
-            snap: { // スナップスクロールにする
-                snapTo: 1 / (panels.length - 1), // スナップで移動させる位置
-                duration: { min: 0.4, max: 0.6 }, // スナップで移動する際の遅延時間
-                ease: "none" // easing
-            },
-            end: () => "+=" + dataWidth // アニメーションの終了タイミング
-        }
-    });
+    // 画面幅が768px以上の場合にGSAPを有効化
+    if (window.innerWidth > 768) {
+        gsap.to(panels, {
+            xPercent: -100 * (panels.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: data,
+                pin: true,
+                scrub: 0.5,
+                snap: {
+                    snapTo: 1 / (panels.length - 1),
+                    duration: { min: 0.4, max: 0.6 },
+                    ease: "none"
+                },
+                end: () => "+=" + dataWidth
+            }
+        });
+    } else {
+        // モバイル用の調整が必要ならここに追加する
+        console.log("Mobile version - GSAP is disabled");
+    }
 }
+
 
 
 /****** ================================
