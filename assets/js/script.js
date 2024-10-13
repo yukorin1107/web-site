@@ -300,3 +300,25 @@ $(document).ready(function() {
 });
 
 
+//ニュースのモーダル
+// $('.title').on('click', function() {
+//     var box = $(this).next('.box');
+
+//     if (box.css('display') === 'none') {
+//         box.css('display', 'flex'); 
+//     } else {
+//         box.css('display', 'none'); 
+//     }
+// });
+
+// $('.title').on('click', function() {
+//     var box = $(this).next('.box');
+
+//     box.slideToggle(300, function() {
+//         if (box.is(':visible')) {
+//             box.css('display', 'flex');
+//         } else {
+//             box.css('display', 'none');
+//         }
+//     });
+// });
