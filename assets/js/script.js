@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     callbacks: {
                         label: function(context) {
                             const value = context.parsed;
-                            const total = context.chart._metasets[context.datasetIndex].total;
+                            const total = context.dataset.data.reduce((sum, val) => sum + val, 0);
                             const pct = (value / total * 100).toFixed(1);
                             return `${context.label}: ${value}人 (${pct}%)`;
                         }
