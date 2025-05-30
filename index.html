@@ -70,11 +70,11 @@
         <span></span>
     </div>
 
+    <!-- "留学相談をする"吹き出しボタン -->
     <div id="apply">
-        <a href="https://forms.gle/exF4S7eDgopBRTX7A" target="_blank" rel="noopener noreferrer" id="counseling">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScU2YkQA7EX5sYUdNb9cFQLt1a9lCrDP6dCEPNUcBe6tK-d5w/viewform" target="_blank" rel="noopener noreferrer" id="counseling">
             <div class="counseling-img-container">
                 <img src="./assets/img/counseling/counseling.png" alt="" id="counseling-img">
-                <!-- <img src="./assets/img/counseling/counseling-after.png" alt="" id="counseling-hover"> -->
             </div>
             <!-- commitされているかどうかテスト -->
         </a>
@@ -128,9 +128,8 @@
                         <p>あらゆるニーズの学生に対して、様々なバックグラウンドを持つワールド会員で留学相談に対応します。</p>
                         <h4>留学情報ステーション</h4>
                         <ul>
-                            <li>シフト制で駐在し対面で事前予約なしの対面での留学相談に対応</li>
-                            <li>下記ZOOMリンクにてオンラインでも対応</li>
-                            <li><a href="https://us02web.zoom.us/j/83540060768?pwd=NXPRpau1VtHUOrehfkkpcaWlmwhuKt.1" target="_blank" rel="noopener noreferrer">留ステオンライン</a></li>
+                            <li>下記URLからご予約ください</li>
+                            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScU2YkQA7EX5sYUdNb9cFQLt1a9lCrDP6dCEPNUcBe6tK-d5w/viewform?usp=sharing" target="_blank" rel="noopener noreferrer">留学相談をする</a></li>
                         </ul>
                     </div>
                     <div>
@@ -225,12 +224,19 @@
                         <h2>DESTINATION</h2>
                         <h3>私たちの留学先</h3>
                         <div class="data-panel-01-content">
-                            <div id="data1-img">
-                                <img src="./assets/img/data/data1-img.png" alt="">
-                            </div>
-                            <div id="data1-img-2">
-                                <img src="./assets/img/data/data1-img2.png" alt="">
-                            </div>
+                            <div id="destination-stats">
+                                <p class="stat">
+                                    <span class="cantry-number">40</span><span class="stat-label">カ国</span>
+                                </p>
+                                <span class="stat-text">以上の国に留学した</span>
+                                <p class="stat">
+                                    <span class="people-number">100</span><span class="stat-label">人</span>
+                                </p>
+                                <span class="stat-text">以上のメンバーが在籍</span>
+                                </div>
+                                <div id="destination-chart-container">
+                                    <canvas id="destinationChart"></canvas>
+                                </div>
                         </div>
                     </div>
                     <div class="data-panel data-panel-02 panel" id="panel02">
@@ -254,32 +260,9 @@
                         <h3>イベント開催実績</h3>
                         <div class="data-panel-03-content">
 
-                            <div id="data3-img">
-                                <div class="insta">
-                                    <a href="https://www.instagram.com/p/C5SpnneLy4Y/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer"><img src="./assets/img/data/ig-sodan.png" alt=""></a>
-                                </div>
-                                <div class="insta">
-                                    <a href="https://www.instagram.com/p/C9MxHxWPQ-V/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer"><img src="./assets/img/data/ig-career.png" alt=""></a>
-                                </div>
-                                <div class="insta">
-                                    <a href="#"><img src="./assets/img/data/ig-gogaku.png" alt=""></a>
-                                </div>
-                                <div class="insta">
-                                    <a href="https://www.instagram.com/p/C8wcZ0wSnSi/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer"><img src="./assets/img/data/ig-kouryu.png" alt=""></a>
-                                </div>
-                                <div class="insta">
-                                    <a href="https://www.instagram.com/reel/C50nFQmvqYW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer"><img src="./assets/img/data/ig-wings.png" alt=""></a>
-                                </div>
-                                <div class="insta">
-                                    <a href="https://www.instagram.com/reel/C8uOQKuvAk3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer"><img src="./assets/img/data/ig-collab.png" alt=""></a>
-                                </div>
-                                <div class="insta">
-                                    <a href="https://www.instagram.com/p/C9wKRMvPJW0/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer"><img src="./assets/img/data/ig-oc.png" alt=""></a>
-                                </div>
-                                <div class="insta">
-                                    <a href="https://www.instagram.com/p/C8eekCPvxDl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer"><img src="./assets/img/data/ig-thereal.png" alt=""></a>
-
-                                </div>
+                            <!-- Instagram oEmbed埋め込みコンテナ -->
+                            <div id="instagram-embed-container">
+                                <!-- JavaScript で動的に Instagram 投稿が埋め込まれます -->
                             </div>
 
                             <div id="data3-img-2">
@@ -423,12 +406,18 @@
 <!-- Slick CarouselのJavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
 
 <!-- Modaal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
+
+<!-- Instagram Embed Script -->
+<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- jquery.cookie.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
