@@ -1509,7 +1509,7 @@ small{
     align-items: baseline;
     justify-content: center;
 }
-#destination-stats .cantry-number {
+#destination-stats .country-number {
     font-size: 6vw;
     color: red;
     font-weight: bold;
