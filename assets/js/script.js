@@ -322,3 +322,164 @@ $(document).ready(function() {
 //         }
 //     });
 // });
+
+/****** ================================
+ * データセクション：DESTINATION用
+ * =============================== ******/
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Chart.jsが読み込まれているか確認
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js が読み込まれていません');
+        return;
+    }
+
+    // データ定義（例：国別の人数割合）
+    const labels = ['アジア', '欧州', '北米', 'オセアニア', '中南米・アフリカ'];
+    const dataValues = [47, 27, 11, 10, 8];  
+    
+    // 配色を定義
+    const backgroundColors = [
+        '#FF6384',
+        '#36A2EB',
+        '#FFCE56',
+        '#4BC0C0',
+        '#9966FF'
+    ];
+
+    const chartElement = document.getElementById('destinationChart');
+    if (!chartElement) {
+        console.error('destinationChart 要素が見つかりません');
+        return;
+    }
+
+    const ctx = chartElement.getContext('2d');
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: dataValues,
+                backgroundColor: backgroundColors,
+                borderWidth: 2,
+                borderColor: '#ffffff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            animation: {
+                animateRotate: true,
+                animateScale: true,
+                duration: 1500
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { 
+                        boxWidth: 20, 
+                        padding: 20,
+                        font: {
+                            size: 18,
+                            family: "鉄瓶ゴシック, sans-serif"
+                        },
+                        generateLabels: function(chart) {
+                            const data = chart.data;
+                            if (data.labels.length && data.datasets.length) {
+                                return data.labels.map((label, i) => {
+                                    const value = data.datasets[0].data[i];
+                                    return {
+                                        text: `${label} (${value}人)`,
+                                        fillStyle: data.datasets[0].backgroundColor[i],
+                                        strokeStyle: data.datasets[0].borderColor,
+                                        lineWidth: data.datasets[0].borderWidth,
+                                        hidden: false,
+                                        index: i
+                                    };
+                                });
+                            }
+                            return [];
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const value = context.parsed;
+                            const total = context.dataset.data.reduce((sum, val) => sum + val, 0);
+                            const pct = (value / total * 100).toFixed(1);
+                            return `${context.label}: ${value}人 (${pct}%)`;
+                        }
+                    },
+                    backgroundColor: 'rgba(0,0,0,0.8)',
+                    titleFont: {
+                        family: "鉄瓶ゴシック, sans-serif",
+                        size: 16
+                    },
+                    bodyFont: {
+                        family: "鉄瓶ゴシック, sans-serif",
+                        size: 14
+                    }
+                }
+            }
+        }
+    });
+});
+  
+
+/****** ================================
+ * Instagram oEmbed機能
+ * =============================== ******/
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Instagram投稿のURLリスト（投稿IDとタイプを含む）- 3つに変更
+    const instagramPosts = [
+        { url: 'https://www.instagram.com/p/DJtkTMGB2S-/', type: 'post', id: 'DJtkTMGB2S-', fallback: 'sodan' },
+        { url: 'https://www.instagram.com/p/DJY6htax65I/', type: 'post', id: 'DJY6htax65I', fallback: 'wings' },
+        { url: 'https://www.instagram.com/p/DI8ob40h6YT/', type: 'post', id: 'DI8ob40h6YT', fallback: 'career' }
+    ];
+
+    const instagramContainer = document.getElementById('instagram-embed-container');
+    
+    if (!instagramContainer) {
+        console.error('Instagram埋め込みコンテナが見つかりません');
+        return;
+    }
+
+    // 各投稿を埋め込み表示
+    instagramPosts.forEach((post, index) => {
+        createInstagramEmbed(post, index);
+    });
+
+    function createInstagramEmbed(post, index) {
+        const postDiv = document.createElement('div');
+        postDiv.className = 'instagram-post';
+        
+        // Instagram の埋め込み blockquote 形式で作成（シンプル版）
+        const embedHTML = `
+            <blockquote class="instagram-media" 
+                        data-instgrm-permalink="${post.url}" 
+                        data-instgrm-version="14"
+                        style="background:#FFF; border:0; border-radius:20px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:320px; min-width:300px; padding:20px; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                <div style="text-align: center;">
+                    <a href="${post.url}" 
+                       style="color:#3897f0; text-decoration:none; font-family:Arial,sans-serif; font-size:16px; font-weight:600;" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        Instagramでこの投稿をみる
+                    </a>
+                </div>
+            </blockquote>
+        `;
+        
+        postDiv.innerHTML = embedHTML;
+        instagramContainer.appendChild(postDiv);
+        
+        // Instagram埋め込みスクリプトを実行
+        setTimeout(() => {
+            if (window.instgrm && window.instgrm.Embeds) {
+                window.instgrm.Embeds.process();
+            }
+        }, 100);
+    }
+});
